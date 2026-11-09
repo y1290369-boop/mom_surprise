@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برای مامان عزیزم ❤️</title>
+
+<style>
+* {box-sizing:border-box}
+
+body {
+ margin:0;
+ min-height:100vh;
+ background:linear-gradient(135deg,#f9dce7,#fff0e9,#efd6e2);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-family:Tahoma,sans-serif;
+ text-align:center;
+ overflow-x:hidden;
+ padding:20px;
+}
+
+.container {
+ width:100%;
+ max-width:440px;
+}
+
+.envelope {
+ background:#c76c8d;
+ width:240px;
+ height:155px;
+ margin:60px auto 30px;
+ border-radius:12px;
+ position:relative;
+ box-shadow:0 15px 35px #a64e7440;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ cursor:pointer;
+}
+
+.envelope:before {
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:0;
+ height:0;
+ border-left:120px solid transparent;
+ border-right:120px solid transparent;
+ border-top:95px solid #e99bb5;
+ transform-origin:top;
+ transition:transform 1s;
+ z-index:2;
+}
+
+.envelope.open:before {
+ transform:rotateX(180deg);
+}
+
+.heart {
+ font-size:55px;
+ z-index:3;
+ animation:beat 1s infinite;
+}
+
+@keyframes beat {
+ 50% {transform:scale(1.2)}
+}
+
+h1 {color:#a9426a;font-size:27px}
+
+.intro {color:#88576b;line-height:2}
+
+button {
+ background:#b94e76;
+ color:white;
+ border:0;
+ padding:15px 27px;
+ border-radius:30px;
+ font-size:16px;
+ cursor:pointer;
+}
+
+#surprise {
+ display:none;
+ animation:show 1.5s ease;
+}
+
+#surprise img {
+ width:100%;
+ border:6px solid white;
+ border-radius:20px;
+ box-shadow:0 8px 25px #b94e7640;
+}
+
+.letter {
+ background:#fffaf7;
+ border-radius:20px;
+ padding:20px;
+ margin-top:20px;
+ color:#8e526b;
+ line-height:2.5;
+ box-shadow:0 5px 20px #b94e7620;
+}
+
+@keyframes show {
+ from {opacity:0;transform:translateY(30px)}
+ to {opacity:1;transform:translateY(0)}
+}
+
+.petal {
+ position:fixed;
+ top:-30px;
+ pointer-events:none;
+ animation:fall linear infinite;
+}
+
+@keyframes fall {
+ to {transform:translateY(110vh) rotate(360deg)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+ <div id="start">
+  <h1>یک نامه برای عزیزترینم 💌</h1>
+  <p class="intro">
+   برای کسی که تمام دنیای منه...<br>
+   یک سورپرایز کوچولو دارم ❤️
+  </p>
+
+  <div class="envelope" id="envelope">
+   <div class="heart">💌</div>
+  </div>
+
+  <button onclick="openLetter()">
+   نامه‌ات رو باز کن ❤️
+  </button>
+ </div>
+
+ <div id="surprise">
+  <h1>مامان قشنگم ❤️</h1>
+
+  <img src="mom.jpg" alt="من و مامان">
+
+  <div class="letter">
+   مامان جانم... 🌷<br>
+   می‌دونی قشنگ‌ترین اتفاق زندگی من چیه؟
+   اینکه تو رو دارم.<br>
+   تو فقط مامان من نیستی،
+   تو امن‌ترین آغوش دنیا،
+   قشنگ‌ترین لبخند و عزیزترین آدم زندگی منی.<br>
+   شاید هزار بار نگم،
+   ولی هر روز بیشتر از دیروز دوستت دارم.<br>
+   الهی همیشه بخندی و دلت شاد باشه.<br>
+
+   <h2>دوستت دارم، تا بی‌نهایت ❤️</h2>
+
+   <small>با تمام عشق دنیا، دخترت یاسمین 💗</small>
+  </div>
+ </div>
+
+</div>
+
+<script>
+function openLetter() {
+ document.getElementById("envelope").classList.add("open");
+
+ setTimeout(function(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("surprise").style.display="block";
+ },1000);
+}
+
+for(let i=0;i<25;i++){
+ let p=document.createElement("div");
+ p.className="petal";
+ p.innerHTML=["🌸","💕","🌷","💗"][i%4];
+ p.style.left=Math.random()*100+"vw";
+ p.style.animationDuration=(5+Math.random()*7)+"s";
+ p.style.animationDelay=Math.random()*8+"s";
+ p.style.fontSize=(15+Math.random()*15)+"px";
+ document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
